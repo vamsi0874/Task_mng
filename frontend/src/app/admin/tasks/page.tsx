@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // useRouter is used in the App Router
 import axiosInstance from '@/lib/api';
 import { API_PATHS } from '@/lib/paths';
-import { LuFileSpreadsheet } from 'react-icons/lu';
 import TaskStatusTabs from '@/components/TaskStatusTabs';
 import TaskCard from '@/components/TaskCard';
 interface User {
