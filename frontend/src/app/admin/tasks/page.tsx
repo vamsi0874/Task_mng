@@ -81,13 +81,13 @@ const ManageTasks = () => {
       <div className="flex flex-col md:items-center justify-between">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-xl md:text-xl font-medium">Manage Tasks</h2>
-          <button
+          {/* <button
             className="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium  hover:bg-primary-dark cursor-pointer"
             onClick={handleDownloadReport}
           >
             <LuFileSpreadsheet />
             Download Report
-          </button>
+          </button> */}
         </div>
 
     
@@ -98,9 +98,9 @@ const ManageTasks = () => {
               activeTab={filterStatus}
               setActiveTab={setFilterStatus}
             />
-            <button>
+            {/* <button>
              <LuFileSpreadsheet />
-            </button>
+            </button> */}
           </div>
         )}
    
