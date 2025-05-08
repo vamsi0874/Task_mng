@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation'; // useRouter is used in the App Router
+import { useRouter } from 'next/navigation'; 
 import axiosInstance from '@/lib/api';
 import { API_PATHS } from '@/lib/paths';
 import TaskStatusTabs from '@/components/TaskStatusTabs';
@@ -66,9 +66,7 @@ const ManageTasks = () => {
     router.push(`/admin/create-task?taskId=${taskData?._id}`);
   };
 
-  const handleDownloadReport = async () => {
-    // Logic to handle report download
-  };
+
 
   useEffect(() => {
     getAllTasks(filterStatus);
