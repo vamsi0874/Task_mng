@@ -13,14 +13,14 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   const { login } = useAuth();
-  // const router = useRouter();
+
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const { mutate, isPending } = useMutation({
     mutationFn: login,
     onSuccess: () => {
-      // router.push('/dashboard');
+      
     },
     onError: (err) => {
       console.error("Login failed", err);
@@ -48,7 +48,7 @@ export default function LoginPage() {
       >
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Welcome Back</h2>
 
-        {/* Email */}
+    
         <div className="mb-5">
           <input
             {...register('email')}
@@ -60,7 +60,7 @@ export default function LoginPage() {
           )}
         </div>
 
-        {/* Password */}
+       
         <div className="mb-6 relative">
           <input
             {...register('password')}
@@ -79,10 +79,10 @@ export default function LoginPage() {
           )}
         </div>
 
-        {/* Error Message */}
+     
         {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
 
-        {/* Submit */}
+     
         <button
           type="submit"
           disabled={isSubmitting}
@@ -91,7 +91,7 @@ export default function LoginPage() {
           {isPending ? 'Logging in...' : 'Login'}
         </button>
 
-        {/* Signup Link */}
+     
         <p className="mt-6 text-center text-sm text-gray-700">
           Don&apos;t have an account? &apos;
           <Link href="/auth/signup" className="text-green-600 hover:underline">

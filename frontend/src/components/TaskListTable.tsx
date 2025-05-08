@@ -1,9 +1,6 @@
 
 import moment from 'moment';
 
-
-
-
 const TaskListTable = ({ tableData }:{tableData:{
   _id: string;
   title: string;

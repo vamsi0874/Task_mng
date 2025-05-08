@@ -5,7 +5,6 @@ import Sidebar from "@/components/Sidebar"
 
 const Layout = ({children}:{children:React.ReactNode}) => {
   const { user } = useAuth()
-  // const [activeMenu, setActiveMenu] = useState<string>("Dashboard")
 
   if(!user){
     return (

@@ -15,7 +15,7 @@ const taskSchema = new mongoose.Schema({
   assignedTo: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   todoCheckList: [todoSchema],
   progress : { type: Number, default: 0 },
-  attachments: [{ type: String }], // Array of attachment URLs
+  attachments: [{ type: String }], 
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 }, { timestamps: true });
 

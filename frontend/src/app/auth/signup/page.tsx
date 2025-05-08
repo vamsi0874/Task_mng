@@ -9,12 +9,12 @@ import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
 
 export default function RegisterPage() {
-  // const router = useRouter();
+ 
   const { signup } = useAuth();
 
   const { mutate } = useMutation({
     mutationFn: signup,
-    // onSuccess: () => router.push('/login'),
+    
   });
 
   const {
@@ -83,7 +83,7 @@ export default function RegisterPage() {
           {isSubmitting ? 'Registering...' : 'Register'}
         </button>
 
-        {/* Login Link */}
+  
         <p className="mt-6 text-center text-sm text-gray-700">
           Already have an account?{' '}
           <Link href="/auth/login" className="text-blue-600 hover:underline">

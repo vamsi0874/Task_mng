@@ -34,7 +34,6 @@ interface Task {
   completedTodoCount: number;
   todoCheckList: TodoChecklistItem[];
   attachments: string[];
-  // todoChecklist: any[];
 }
 const ViewTaskDetails = () => {
   const { taskId } = useParams();
@@ -51,7 +50,6 @@ const ViewTaskDetails = () => {
     }
   };
 
-  // Fetch task by ID
   const getTaskDetailsByID = async () => {
     try {
     const response = await axiosInstance.get(API_PATHS.TASKS.GET_TASK_BY_ID(taskId as string));
@@ -63,31 +61,7 @@ const ViewTaskDetails = () => {
     }
   };
 
-  // Handle todo checklist toggle
-  // const updateTodoChecklist = async (index:any) => {
-  //   const todoChecklist = [...(task?.todoCheckList || [])];
-  //   // const TaskId = taskId;
-  //   console.log('todoChecklist', todoChecklist);
-  //   if (todoChecklist && todoChecklist[index]) {
-  //     todoChecklist[index].completed = !todoChecklist[index].completed;
-  
-  //     try {
-  //       const response = await axiosInstance.put(
-  //         API_PATHS.TASKS.UPDATE_TODO_CHECKLIST(taskId as string),
-  //         { todoChecklist }
-  //       );
-  //    console.log('response.data', response.data);
-  //       if (response.status === 200) {
-  //         setTask(response.data?.task || task);
-  //       } else {
-  //         // Optionally revert the toggle if the API call fails.
-  //         todoChecklist[index].completed = !todoChecklist[index].completed;
-  //       }
-  //     } catch (error) {
-  //       todoChecklist[index].completed = !todoChecklist[index].completed;
-  //     }
-  //   }
-  // };
+
   
   const updateTodoChecklist = async (index: number) => {
     const prevChecklist = [...(task?.todoCheckList || [])];
@@ -95,7 +69,7 @@ const ViewTaskDetails = () => {
       i === index ? { ...item, completed: !item.completed } : item
     );
   
-    // Optimistic UI update
+ 
     setTask((prev) => (prev ? { ...prev, todoCheckList: updatedChecklist } : prev));
   
     try {
@@ -105,13 +79,13 @@ const ViewTaskDetails = () => {
       );
   
       if (response.status === 200 && response.data?.task) {
-        setTask(response.data.task); // ✅ Correct task from backend
+        setTask(response.data.task); 
       } else {
-        // ❌ Revert if failed
+        
         setTask((prev) => (prev ? { ...prev, todoCheckList: prevChecklist } : prev));
       }
     } catch (error) {
-      // ❌ Revert if error
+      
       console.log('error',error);
       setTask((prev) => (prev ? { ...prev, todoCheckList: prevChecklist } : prev));
     }
@@ -119,7 +93,7 @@ const ViewTaskDetails = () => {
   
   
 
-  // Handle attachment link click
+  
   const handleLinkClick = (url: string) => {
     url = 'https://' + url;
     window.open(url, '_blank');

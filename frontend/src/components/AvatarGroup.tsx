@@ -5,7 +5,7 @@ const AvatarGroup = ({ avatars, maxVisible }:{
     avatars:string[],
     maxVisible:number
 }) => {
-    // console.log('Avatars:',avatars);
+   
         return (
             <div className="flex items-center gap-2">
                {

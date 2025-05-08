@@ -10,7 +10,7 @@ export const protect = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     // console.log('decoded',decoded);
-    req.user = decoded; // Add user data to request
+    req.user = decoded; 
     next();
   } catch (err) {
     res.status(403).json({ message: 'Invalid token' });
@@ -32,4 +32,4 @@ export const adminOnly = async (req, res, next) => {
     return res.status(403).json({ message: "Access denied: insufficient role" });
   }
   next();
-} // 38:45
+} 

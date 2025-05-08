@@ -1,5 +1,5 @@
 const DeleteAlert = ({ content, onDelete }:{content:string,onDelete:()=>void}) => {
-  console.log('deeeeeeee',typeof onDelete,typeof content);
+
     return (
       <div>
         <p className="text-sm">{content}</p>

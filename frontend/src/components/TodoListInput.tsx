@@ -15,7 +15,6 @@ const TodoListInput = ({ todoList, setTodoList }:
 
   const [option, setOption] = useState("");
 
-  // Function to handle adding an option
   const handleAddOption = () => {
     if (option.trim()) {
       setTodoList([...todoList, { text: option.trim(), completed: false }]);
@@ -23,7 +22,6 @@ const TodoListInput = ({ todoList, setTodoList }:
     }
   };
 
-  // Function to handle deleting an option
   const handleDeleteOption = (index:number) => {
     const updatedArr = todoList.filter((_:TodoListItem, idx:number) => idx !== index);
     setTodoList(updatedArr);

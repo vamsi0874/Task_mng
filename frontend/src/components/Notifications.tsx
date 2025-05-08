@@ -4,12 +4,7 @@ import { useEffect, useState } from "react";
 import { socket } from "@/lib/socket";
 import { Bell } from "lucide-react";
 
-// type NotificationType = {
-//   id: string;
-//   senderUsername: string;
-//   type: "like" | "comment" | "rePost" | "follow";
-//   link: string;
-// };
+
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState<{title:string,id?:string}[]>([]);
@@ -23,7 +18,6 @@ const Notifications = () => {
     });
   }, []);
 
-  // const router = useRouter();
 
   const reset = () => {
     setNotifications([]);
@@ -34,7 +28,6 @@ const Notifications = () => {
     const filteredList = notifications.filter((n) => n.id !== notification.id);
     setNotifications(filteredList);
     setOpen(false);
-    // router.push(notification.link);
   };
   return (
     <div className="relative mb-4">
@@ -43,7 +36,6 @@ const Notifications = () => {
         onClick={() => setOpen((prev) => !prev)}
       >
         <div className="relative">
-          {/* <Image path={`icons/notification.svg`} alt="" w={24} h={24} /> */}
           {notifications.length > 0 && (
             <div className="absolute -top-4 -right-4 w-6 h-6 bg-iconBlue p-2 rounded-full flex items-center justify-center text-sm">
               {notifications.length}
@@ -63,13 +55,7 @@ const Notifications = () => {
               onClick={() => handleClick(n)}
             >
               <b>{n.title}</b>{" "}
-              {/* {n.type === "like"
-                ? "liked your post"
-                : n.type === "rePost"
-                ? "re-posted your post"
-                : n.type === "comment"
-                ? "replied your post"
-                : "followed you"} */}
+              
             </div>
           ))}
           <button
@@ -86,10 +72,3 @@ const Notifications = () => {
 
 export default Notifications;
 
-// const Notifications = () => {
-//     return (
-//         <div>nnnnnn</div>
-//     )
-// }
-
-// export default Notifications

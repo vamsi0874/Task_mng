@@ -160,19 +160,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     router.push('/auth/login');
   };
 
-  // const updateProfile = async (data:any) => {
-  //   setisUpdatingProfile(true);
-  //   try {
-  //     const res = await axiosInstance.put("/api/auth/profile", data);
-  //    console.log("res.data",res.data);
-  //     // toast.success("Profile updated successfully");
-  //   } catch (error) {
-  //     console.log("error in update profile:", error);
-  //     toast.error((error as any).response.data.message);
-  //   } finally {
-  //     setisUpdatingProfile(true);
-  //   }
-  // }
+
 
   const updateProfile = async (file:File) => {
     setisUpdatingProfile(true);

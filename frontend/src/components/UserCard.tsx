@@ -18,7 +18,7 @@ const UserCard = ({ userInfo }:{
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow">
             <Image
-              src={userInfo?.profileImageUrl || '/avatar.png'} // Use a default avatar if no image URL
+              src={userInfo?.profileImageUrl || '/avatar.png'} 
               alt={userInfo?.username || 'Avatar'}
               width={100}
               height={100}

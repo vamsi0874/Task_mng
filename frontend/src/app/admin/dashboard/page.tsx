@@ -99,14 +99,14 @@ interface priorityLevelData {
 
 
    const addThoudsandSeparator = (num: number | string): string => {
-    if (num == null) return ""; // handles null or undefined
+    if (num == null) return ""; 
   
     const [integerPart, fractionalPart] = num.toString().split(".");
     const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   
     return fractionalPart ? `${formattedInteger}.${fractionalPart}` : formattedInteger;
   };
-  // Prepare Chart Data
+ 
 const prepareChartData = (data: {
   taskDistribution: {pending: number, inProgress: number, completed: number,All: number};
   taskPriorityLevels: {low: number, medium: number, high: number};
