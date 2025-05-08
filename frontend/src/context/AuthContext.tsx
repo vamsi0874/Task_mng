@@ -10,9 +10,7 @@ import {
   ReactNode,
 } from 'react';
 import { API_PATHS } from '@/lib/paths';
-import { set } from 'zod';
 import toast from 'react-hot-toast';
-import Socket from '@/components/Socket';
 
 interface User {
   _id?: string;

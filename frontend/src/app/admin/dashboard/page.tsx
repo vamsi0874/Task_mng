@@ -13,6 +13,7 @@ import TaskListTable from '@/components/TaskListTable';
 import CustomPieChart from '@/components/CustomPieChart';
 import CustomBarChart from '@/components/CustomBarChart';
 
+
 interface  dashboardData {
   statistics: statistics;
   recentTasks: recentTasks[];
@@ -56,7 +57,7 @@ interface taskPriorityLevels {
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 export default function DashboardPage() {
-  const { user,logout } = useAuth();
+  const { user } = useAuth();
   const router = useRouter();
   
   const [dashboardData, setDashboardData] = useState<dashboardData>({

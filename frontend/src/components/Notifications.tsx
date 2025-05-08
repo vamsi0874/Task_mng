@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { socket } from "@/lib/socket";
-import { useRouter } from "next/navigation";
 import { Bell } from "lucide-react";
 
 // type NotificationType = {
@@ -24,7 +23,7 @@ const Notifications = () => {
     });
   }, []);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   const reset = () => {
     setNotifications([]);

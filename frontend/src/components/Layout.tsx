@@ -2,11 +2,10 @@
 import { useAuth } from "@/context/AuthContext"
 import Navbar from "@/components/Navbar"
 import Sidebar from "@/components/Sidebar"
-import { useState } from "react"
 
 const Layout = ({children}:{children:React.ReactNode}) => {
   const { user } = useAuth()
-  const [activeMenu, setActiveMenu] = useState<string>("Dashboard")
+  // const [activeMenu, setActiveMenu] = useState<string>("Dashboard")
 
   if(!user){
     return (
@@ -15,12 +14,12 @@ const Layout = ({children}:{children:React.ReactNode}) => {
   }
     return (
     <div>
-        <Navbar activeMenu={activeMenu}/>
+        <Navbar />
 
         {user && (
             <div className="flex gap-4">
                 <div className="">
-                <Sidebar activeMenu={activeMenu}/>
+                <Sidebar />
                 </div>
                 <div className="grow mx-5">{children}</div>
             </div> 

@@ -14,6 +14,7 @@ const UsersPage = () => {
             const response = await axiosInstance.get(API_PATHS.USERS.GET_ALL_USERS);
             setAllUsers(response.data);
             console.log('response.data', response.data);
+            console.log('response.data', response.data);
         } catch (error) {
             console.error('Error fetching users:', error);
         }
@@ -38,7 +39,16 @@ const UsersPage = () => {
       </button>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-      {AllUsers?.map((user:{_id:string}) => (
+      {AllUsers?.map((user:{
+        _id:string,
+        username:string,
+        email:string,
+        role:string,
+        profileImageUrl:string,
+        pendingTasks:number,
+       inProgressTasks:number,
+       completedTasks:number
+      }) => (
         <UserCard key={user._id} userInfo={user} />
       ))}
     </div>
@@ -47,3 +57,4 @@ const UsersPage = () => {
 };
 
 export default UsersPage;
+

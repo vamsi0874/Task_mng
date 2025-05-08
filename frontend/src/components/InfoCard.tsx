@@ -1,5 +1,5 @@
 
-const InfoCard = ({icon,label,value,color}:{
+const InfoCard = ({label,value,color}:{
   icon?:React.ReactNode,
   label:string,
   value:string | number,

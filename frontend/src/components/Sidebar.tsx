@@ -126,13 +126,13 @@ import { SIDE_MENU_DATA, SIDE_MENU_USER_DATA } from "@/lib/data"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import React, { useEffect, useState } from "react"
-import { Camera, Mail, User } from "lucide-react";
+import { Camera } from "lucide-react";
 import Notifications from "./Notifications"
 import Socket from "./Socket"
 
 type IconType = React.ComponentType<{ className?: string }>;
 
-const Sidebar = ( {activeMenu}:{activeMenu:string}) => {
+const Sidebar = ( ) => {
    
     
     const { user, clearUser, updateProfile ,isUpdatingProfile } = useAuth()
@@ -173,7 +173,7 @@ const handleImageUpload = async (e:React.ChangeEvent<HTMLInputElement>) => {
     if (!file) return;
 
     setSelectedImg(URL.createObjectURL(file)); 
-
+    console.log(selectedImg)
   await updateProfile(file);
 
     };
@@ -181,6 +181,7 @@ const handleImageUpload = async (e:React.ChangeEvent<HTMLInputElement>) => {
         if(user){
             
             setSideMenuData(user?.role==="admin" ? SIDE_MENU_DATA : SIDE_MENU_USER_DATA)
+            
         }
     },[user])
     return (
@@ -237,11 +238,13 @@ const handleImageUpload = async (e:React.ChangeEvent<HTMLInputElement>) => {
                 <button
                 
                 onClick={() => handleClick(item.path)}
-                className={`w-full flex items-center gap-4 text-[15px] py-3 px-6 mb-3 cursor-pointer text-black hover:bg-gray-100 ${
-                    activeMenu === item.label
-                      ? 'bg-gradient-to-r from-blue-50/40 to-blue-100/50 text-primary border-r-[3px] border-blue-500'
-                      : ''
-                  }`}
+                className={`w-full flex items-center gap-4 text-[15px] py-3 px-6 mb-3 cursor-pointer text-black hover:bg-gray-100` 
+                  // ${
+                  //   activeMenu === item.label
+                  //     ? 'bg-gradient-to-r from-blue-50/40 to-blue-100/50 text-primary border-r-[3px] border-blue-500'
+                  //     : ''
+                  // }`
+                }
                 >
                    <item.icon className="w-5 h-5"/>
                     {item.label}

@@ -8,6 +8,7 @@ import moment from 'moment';
 import AvatarGroup from '@/components/AvatarGroup';
 import { LuSquareArrowOutUpRight } from 'react-icons/lu';
 
+
 interface User {
   _id: string;
   username: string;
@@ -111,6 +112,7 @@ const ViewTaskDetails = () => {
       }
     } catch (error) {
       // ❌ Revert if error
+      console.log('error',error);
       setTask((prev) => (prev ? { ...prev, todoCheckList: prevChecklist } : prev));
     }
   };
@@ -128,7 +130,7 @@ const ViewTaskDetails = () => {
       getTaskDetailsByID();
     }
     return () => {}
-  }, [taskId]);
+  }, [taskId,getTaskDetailsByID]);
 
   return (
     <div className="mt-5">
@@ -225,11 +227,11 @@ const InfoBox = ({ label, value }: { label: string; value: string }) => {
   );
 };
 
-const TodoCheckList = ({ text, isChecked, onChange }:
+const TodoCheckList = ({ text }:
   {
     text: string;
-    isChecked: boolean;
-    onChange: () => void;
+    isChecked?: boolean;
+    onChange?: () => void;
   }
 ) => {
   return (

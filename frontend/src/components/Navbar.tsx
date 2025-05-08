@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiOutlineX, HiOutlineMenu } from 'react-icons/hi'; 
 import Sidebar from './Sidebar';
 
-const Navbar = ( {activeMenu}:{activeMenu:string}) => {
+const Navbar = ( ) => {
   const [openSideMenu, setOpenSideMenu] = useState(false);
  
   return (
@@ -21,7 +21,7 @@ const Navbar = ( {activeMenu}:{activeMenu:string}) => {
       <h2 className="text-lg font-medium text-black">Expense Tracker</h2> 
       {openSideMenu && ( 
         <div className="fixed top-[61px] -ml-4 bg-white">
-          <Sidebar activeMenu={activeMenu}/>
+          <Sidebar/>
         </div>
       )}
     </div>

@@ -1,23 +1,6 @@
 import React, { useState } from 'react';
 import { HiMiniPlus, HiOutlineTrash } from 'react-icons/hi2';
-/**
- * 
- {title: '', description: '', priority: 'low', dueDate: '', assignedTo: Array(0), …}
-assignedTo
-: 
-[]
-attachments
-[]
-description
-""
-dueDate
-""
-priority 
-"low"
-title
-""
-todoChecklist[]
- */
+
 
 interface TodoListItem {
   text:string,
@@ -29,6 +12,7 @@ const TodoListInput = ({ todoList, setTodoList }:
     setTodoList:(value:TodoListItem[])=>void
   }
 ) => {
+
   const [option, setOption] = useState("");
 
   // Function to handle adding an option
@@ -49,6 +33,7 @@ const TodoListInput = ({ todoList, setTodoList }:
     <div>
       {todoList.map((item:TodoListItem , index: number) => (
             <div 
+            key={index}
             className='flex justify-between bg-gray-50 border border-gray-100 px-3 py-2 rounded-md mb-3 mt-2'
             >
                 <p className='text-sm text-black'>

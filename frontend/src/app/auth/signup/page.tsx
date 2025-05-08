@@ -1,7 +1,7 @@
 'use client';
 
 import { useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
+
 import { useForm } from "react-hook-form";
 import { signupSchema } from '@/app/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,10 +9,10 @@ import { useAuth } from '@/context/AuthContext';
 import Link from 'next/link';
 
 export default function RegisterPage() {
-  const router = useRouter();
+  // const router = useRouter();
   const { signup } = useAuth();
 
-  const { mutate, isPending } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: signup,
     // onSuccess: () => router.push('/login'),
   });

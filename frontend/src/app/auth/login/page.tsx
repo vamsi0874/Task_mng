@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -13,7 +13,7 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   const { login } = useAuth();
-  const router = useRouter();
+  // const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,7 +22,7 @@ export default function LoginPage() {
     onSuccess: () => {
       // router.push('/dashboard');
     },
-    onError: (err: any) => {
+    onError: (err) => {
       console.error("Login failed", err);
       setError(err.message || 'Login failed. Please try again.');
     }
@@ -93,7 +93,7 @@ export default function LoginPage() {
 
         {/* Signup Link */}
         <p className="mt-6 text-center text-sm text-gray-700">
-          Don't have an account?{' '}
+          Don&apos;t have an account? &apos;
           <Link href="/auth/signup" className="text-green-600 hover:underline">
             Sign up
           </Link>

@@ -242,7 +242,7 @@ const ManageTasks = () => {
       </div>
 
       <div className="">
-  {allTasks?.map((item:item, index:number) => (
+  {allTasks?.map((item:item) => (
     <TaskCard
       key={item._id}
       title={item.title}

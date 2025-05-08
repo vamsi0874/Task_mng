@@ -113,8 +113,43 @@ import { API_PATHS } from '@/lib/paths';
 import TaskStatusTabs from '@/components/TaskStatusTabs';
 import TaskCard from '@/components/TaskCard';
 
+interface User {
+  _id: string;
+  username: string;
+  profileImageUrl: string;
+  email: string;
+  role: string;
+}
+// interface statusSummary{
+//   allTasks: number;
+//   pendingTasks: number;
+//   inProgressTasks: number;
+//   completedTasks: number;
+// }
+
+interface task{
+  _id: string;
+  title: string;
+  description: string;
+  priority: string;
+  status: string;
+  progress: number;
+  createdAt: string;
+  dueDate: string;
+  assignedTo: User[] | User;
+  attachments: string[];
+  completedTodoCount: number;
+  profileImageUrl: string;
+  todoChecklist: string[];
+  createdBy: string;
+}
+// interface allTasks {
+//   // statusSummary: statusSummary;
+//   tasks: task[];
+// }
+
 const MyTasks = () => {
-  const [allTasks, setAllTasks] = useState<any[]>([]);
+  const [allTasks, setAllTasks] = useState<task[] | null>(null);
   const [tabs, setTabs] = useState<{ label: string; count: number }[]>([]);
   const [filterStatus, setFilterStatus] = useState<string>('All');
 
@@ -127,6 +162,7 @@ const MyTasks = () => {
           status: filterStatus === 'All' ? '' : filterStatus,
         },
       });
+      console.log('response.dataaaaaa', response.data);
 
       const tasks = response.data.tasks || [];
       const statusSummary = response.data.statusSummary || {};
@@ -168,8 +204,8 @@ const MyTasks = () => {
       </div>
 
       <div>
-        {allTasks?.length > 0 ? (
-          allTasks.map((item: any) => (
+        {allTasks && allTasks.length > 0 ? (
+          allTasks?.map((item: task) => (
             <TaskCard
               key={item._id}
               title={item.title}
@@ -181,7 +217,7 @@ const MyTasks = () => {
               dueDate={item.dueDate}
               assignedTo={
                 Array.isArray(item.assignedTo)
-                  ? item.assignedTo.map((person: any) => person.profileImageUrl)
+                  ? item.assignedTo.map((person: User) => person.profileImageUrl)
                   : [item.assignedTo?.profileImageUrl]
               }
               attachmentCount={item.attachments?.length || 0}
