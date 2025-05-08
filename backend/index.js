@@ -22,8 +22,11 @@ app.use('/api/users', userRoutes);
 app.use('/api/tasks',taskRoutes);
 app.use('/api/reports',reportRoutes);
 
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
 // app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-server.listen(PORT, () => {
+server.listen(PORT,'0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });
